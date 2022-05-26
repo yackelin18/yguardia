@@ -1,6 +1,7 @@
 package edu.elp.pe.yguardia.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name="PERSONA")
@@ -9,47 +10,50 @@ import javax.persistence.*;
 public class Persona {
 
     @Id
-    @GeneratedValue(  strategy =GenerationType.IDENTITY )
-    private long idpersona;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idpersona")
+    private Long idpersona;
 
     @Column(name = "nombre", length = 50, nullable = false)
     private String nombre;
 
-    @Column(name = "telefono", length = 10)
+    @Column(name = "apellido", length = 100, nullable = false)
+    private String apellido;
+
+    @Column(name = "edad", length = 10)
+    private String edad;
+
+    private String sexo;
+    private String dni;
+    private String direccion;
     private String telefono;
 
-    @Column(name = "e-mail")
-    private String email;
+    @Column(name = "fecha_nacimiento")
+    private Date fechaNacimiento;
 
     public Persona() {
     }
-    public Persona(long idpersona) {
+
+    public Persona(Long idpersona) {
         this.idpersona = idpersona;
     }
 
-    public Persona(long idpersona, String nombre, String telefono,  String email) {
-        this.idpersona = idpersona;
+    public Persona(String nombre, String apellido, String edad, String sexo, String dni, String direccion, String telefono, Date fechaNacimiento) {
         this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.sexo = sexo;
+        this.dni = dni;
+        this.direccion = direccion;
         this.telefono = telefono;
-        this.email = email;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
-
-    @Override
-    public String toString() {
-        return "Persona{" +
-                "idpersona=" + idpersona +
-                ", nombre='" + nombre + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", email=" + email +
-                '}';
-    }
-
-    public long getIdpersona() {
+    public Long getIdpersona() {
         return idpersona;
     }
 
-    public void setIdpersona(long idpersona) {
+    public void setIdpersona(Long idpersona) {
         this.idpersona = idpersona;
     }
 
@@ -61,6 +65,46 @@ public class Persona {
         this.nombre = nombre;
     }
 
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getEdad() {
+        return edad;
+    }
+
+    public void setEdad(String edad) {
+        this.edad = edad;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
     public String getTelefono() {
         return telefono;
     }
@@ -69,11 +113,25 @@ public class Persona {
         this.telefono = telefono;
     }
 
-    public String getEmail() {
-        return email;
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "idpersona=" + idpersona +
+                        ", nombre='" + nombre + '\'' +
+                        ", apellido='" + apellido + '\'' +
+                        ", edad='" + edad + '\'' +
+                        ", sexo='" + sexo + '\'' +
+                        ", dni='" + dni + '\'' +
+                        ", direccion='" + direccion + '\'' +
+                        ", telefono='" + telefono + '\'' +
+                        ", fechaNacimiento=" + fechaNacimiento;
     }
 }
