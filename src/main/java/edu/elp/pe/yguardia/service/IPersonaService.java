@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface IPersonaService {
     List<Persona> ListaPersonas();
+
+    Persona obtenerPersonaByDni(String dni);
+
+    List<Persona> listaPersonas();
 }

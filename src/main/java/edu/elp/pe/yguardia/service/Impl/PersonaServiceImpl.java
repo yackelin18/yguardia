@@ -21,9 +21,12 @@ public class PersonaServiceImpl implements IPersonaService {
         for ( Persona persona :personaList){
             System.out.println(persona.toString());
         }
-        return this.personaDao.findAll();
+        return personaList;
 
     }
-
+    @Override
+    public Persona obtenerPersonaByDni(String dni) {
+        return this.personaDao.buscarPersona(dni);
+    }
 
 }

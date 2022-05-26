@@ -1,4 +1,4 @@
 package edu.elp.pe.yguardia.dao;
 
-public interface IProfesorDao {
+public interface IDocenteDao {
 }
